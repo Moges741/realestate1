@@ -1,0 +1,202 @@
+/* src/pages/PropertyDetail.module.css */
+
+.container {
+  min-height: 100vh;
+  background: #f8fafc;
+  padding: 40px 20px;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  color: #2563eb;
+  font-weight: 600;
+  margin-bottom: 24px;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+}
+
+.mainImageWrapper {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  margin-bottom: 32px;
+}
+
+.mainImage {
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  object-fit: cover;
+}
+
+.subGallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.subImageWrapper {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.subImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.subImage:hover {
+  transform: scale(1.05);
+}
+
+.infoSection {
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.title {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: #111827;
+  margin-bottom: 16px;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  color: #4b5563;
+  font-size: 1.3rem;
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+
+.locationIcon {
+  width: 28px;
+  height: 28px;
+  margin-right: 12px;
+  color: #3b82f6;
+}
+
+.price {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #1e40af;
+  margin-bottom: 32px;
+}
+
+.features {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.featureIcon {
+  width: 32px;
+  height: 32px;
+  margin-right: 14px;
+  color: #2563eb;
+}
+
+.descriptionSection {
+  margin: 40px 0;
+}
+
+.descriptionTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #4b5563;
+}
+
+.cta {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.contactButton {
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: white;
+  padding: 16px 36px;
+  border: none;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+  transition: all 0.3s;
+}
+
+.contactButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.4);
+}
+
+.saveButton {
+  background: transparent;
+  color: #374151;
+  padding: 16px 32px;
+  border: 2px solid #e2e8f0;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.saveButton:hover {
+  border-color: #2563eb;
+  color: #2563eb;
+  background: #f0f7ff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .price {
+    font-size: 2.4rem;
+  }
+
+  .infoSection {
+    padding: 24px;
+  }
+
+  .subGallery {
+    grid-template-columns: 1fr;
+  }
+}
