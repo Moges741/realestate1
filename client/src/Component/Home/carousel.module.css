@@ -1,15 +1,14 @@
-
 *{
     margin: 0;
-    padding: 0;
 }
 
-.carouselContainer{
-    position: relative;
-    width: 100%;
-    height: 200px;
+.heroContainer {
+  width: 100%;
+  height: 100vh;
 }
-.carouselContainer img{
-    height: 650px;
-    object-fit: cover;
+.slide img {
+  height: 600px;
+
 }
+
+/* Overlay */

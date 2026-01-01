@@ -6,9 +6,22 @@
       display: flex;
     justify-content: space-between;
 }
+.logo{
+    margin-left: 20px;
+    margin-top: 20px;
+}
 .nav_links{
     display: flex;
     gap: 20px;
     align-items: center;
-    
+    margin-right: 20px;
+    margin-top: 20px;
+}
+.nav_links div a{
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}
+.nav_links div a:hover{
+    color: blue;
 }

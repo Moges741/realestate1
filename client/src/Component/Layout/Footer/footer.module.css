@@ -1,0 +1,22 @@
+.footer_container{
+   color: white;
+   font-weight: bold;
+   background-color: #294a07;
+   height: 200px;
+   width: 100%;
+   margin-bottom: 0;
+
+}
+.footer_links{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+}
+.footer_links a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
