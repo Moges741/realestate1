@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './header.module.css';
+import { Link } from 'react-router';
 const Header = () => {
   return (
     <section>
@@ -7,11 +8,11 @@ const Header = () => {
      <div className={styles.logo}> <h2>RS</h2></div>
       <div className={styles.nav_links}>
         <div>
-        <a href="#">SignUp</a>
+        <Link to="/signup">SignUp</Link>
       </div>
-      <div><a href="#">SignIn</a></div>
-      <div><a href="#">Contact Us</a></div>
-      <div><a href="#">Properties</a></div>
+      <div><Link to="/login">SignIn</Link></div>
+      <div><Link to="/contact">Contact Us</Link></div>
+      <div><Link to="/properties">Properties</Link></div>
       </div>
     </div>
     <div className={styles.title}>
