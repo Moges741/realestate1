@@ -3,6 +3,7 @@ import Landing from "../src/Landing/Landing.jsx";
 import PropertyDetail from "./Component/Properties/PropertyDetail.jsx";
 import Login from "./page/Login/Login.jsx";
 import SignUp from "./page/Signup/Signup.jsx";
+import CheckEmail from "./page/Signup/CheckEmail.jsx";
 
 const Routing = () => {
   return (
@@ -11,6 +12,7 @@ const Routing = () => {
         <Route path="/" element={<Landing />} />
         <Route path="/property/:id" element={<PropertyDetail />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/check-email" element={<CheckEmail />} />
         <Route path="/signup" element={<SignUp />} />
 
       </Routes>

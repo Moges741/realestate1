@@ -62,3 +62,14 @@
     flex-direction: column;
     gap: 10px;
 }
+
+.profile_button{
+    border:none;
+    outline:none;
+    cursor:pointer;
+    background-color:white;
+    font-weight:bold;
+}
+.profile_button:hover{
+    color:blue;
+}

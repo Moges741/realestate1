@@ -26,7 +26,7 @@ const SignUp = () => {
       });
 
       setTimeout(() => {
-        navigate("/");
+        navigate("/check-email");
       }, 1500);
     } catch (error) {
       toast.error(error.message || "Signup failed", {

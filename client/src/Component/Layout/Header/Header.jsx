@@ -8,12 +8,15 @@ const Header = () => {
   useEffect(() => {
     async function getSession() {
       const sessionData = await getSessionApi();
+      console.log(sessionData)
       setSession(sessionData);
     }
 
     getSession();
   }, [session]);
-  async function handleLogout(){
+  async function handleLogout(e){
+    e.preventDefault();
+
    try{
     await LogoutApi();
     sessionStorage.clear();
@@ -34,7 +37,7 @@ const Header = () => {
               <img src="src/Component/Layout/Header/profile.jpg" alt="profile" className={styles.profile_image} />
               <div className={styles.profile_links}>
                 <Link to="/profile">Profile</Link>
-                <Link to="/logout" onClick={handleLogout}>Logout</Link>
+                <button className={styles.profile_button} onClick={(e)=>handleLogout(e)}>Logout</button>
               </div>
             </div>
           ) : (

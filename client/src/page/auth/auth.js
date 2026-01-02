@@ -12,16 +12,18 @@ if(error){
 
 return data
 }
-export async function SignupApi({ email, password, fullName }) {
+export async function SignupApi({ email, password, fullName, role='user'}) {
 
 
   let { data, error } = await supabase.auth.signUp({
     email,
     password,
+  
     options: {
       data: {
         fullName,
-        avatar:""
+        avatar: "",
+        role
       },
     },
   });
