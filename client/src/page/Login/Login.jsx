@@ -1,15 +1,26 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./login.css";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+import { LoginApi } from "../auth/auth";
 
 const Login = () => {
 
   const {register, handleSubmit, formState:{errors}} = useForm();
+  const navigate = useNavigate();
 
-  function onSubmit(data){
+  async function onSubmit(data){
   
     console.log(data)
+    try {
+  await LoginApi({ email:data.email, password:data.password });
+  toast.success("Welcome back!");
+  navigate("/");
+} catch (err) {
+  toast.error(err.message);
+}
+
   }
   return (
     <div className="login-container">

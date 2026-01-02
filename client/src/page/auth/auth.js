@@ -1,5 +1,5 @@
 import supabase from "./supabase";
-import md5 from "md5";
+
 export async function LoginApi({email, password}){
   const { data, error } = await supabase.auth.signInWithPassword({
   email,
@@ -13,9 +13,7 @@ if(error){
 return data
 }
 export async function SignupApi({ email, password, fullName }) {
-     const avatar = `https://www.gravatar.com/avatar/${md5(
-    email.toLowerCase()
-  )}?d=identicon`;
+
 
   let { data, error } = await supabase.auth.signUp({
     email,
@@ -23,7 +21,7 @@ export async function SignupApi({ email, password, fullName }) {
     options: {
       data: {
         fullName,
-        avatar
+        avatar:""
       },
     },
   });
@@ -39,4 +37,11 @@ export async function getSessionApi() {
     data: { session },
   } = await supabase.auth.getSession();
   return session;
+}
+
+export async function LogoutApi(){
+  const {error} = await supabase.auth.signOut()
+  if(error){
+    console.log(error.message)
+  }
 }

@@ -1,16 +1,38 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import "./signup.css";
-
+import toast from "react-hot-toast";
+import { SignupApi } from "../auth/auth";
 const SignUp = () => {
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  function onSubmit(data) {
-    
+ async function onSubmit(data) {
+    const toastId = toast.loading("Creating account...");
+
+    try {
+      await SignupApi({
+        email: data.email,
+        password: data.password,
+        fullName: data.fullName,
+      });
+
+      toast.success("Account created successfully!", {
+        id: toastId,
+      });
+
+      setTimeout(() => {
+        navigate("/");
+      }, 1500);
+    } catch (error) {
+      toast.error(error.message || "Signup failed", {
+        id: toastId,
+      });
+    }
   }
   return (
     <div className="signup-container">
