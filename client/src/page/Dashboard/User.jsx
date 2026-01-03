@@ -12,7 +12,8 @@ function User() {
     getLoggedUser();
   }, []);
 
-  console.log(loggedUser);
+  const loggedUserEmailVerified = loggedUser?.filter(user => user.user_metadata.email_verified);
+  console.log(loggedUserEmailVerified);
 
   return (
     <div>
@@ -27,7 +28,7 @@ function User() {
                 </thead>
                 <tbody>
                     {
-                        loggedUser?.map((user, index) => (
+                        loggedUserEmailVerified?.map((user, index) => (
                             <tr key={user.id}>
                                 <td className="number">{index + 1}</td>
                                 <td>{user.user_metadata.fullName}</td>
