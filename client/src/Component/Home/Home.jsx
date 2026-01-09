@@ -1,11 +1,11 @@
-import Properties from "../Properties/Properties"
+// import Properties from "../Properties/Properties"
 import HeroCarousel from "./HeroCarousel"
 
 function Home() {
     return (
         <div>
             <HeroCarousel />
-            <Properties />
+            {/* <Properties /> */}
         </div>
     )
 }

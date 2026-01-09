@@ -1,8 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Landing from "../src/Landing/Landing.jsx";
-import PropertyDetail from "./Component/Properties/PropertyDetail.jsx";
+// import PropertyDetail from "./Component/Properties/PropertyDetail.jsx";
 import Login from "./page/Login/Login.jsx";
 import SignUp from "./page/Signup/Signup.jsx";
+import PropertiesDB from "./page/properties/PropertiesDB.jsx";
+import PropertyDetail from "./page/properties/PropertyDetail.jsx";
 import CheckEmail from "./page/Signup/CheckEmail.jsx";
 import Dashboard from "./page/Dashboard/Dashboard.jsx";
 import User from "./page/Dashboard/User.jsx";
@@ -20,6 +22,12 @@ const Routing = () => {
   return (
     <Router>
       <Routes>
+        <Route path="/" element={<Landing />} />
+        {/* <Route path="/property/:id" element={<PropertyDetail />} /> */}
+        <Route path='/properties' element={<PropertiesDB/>} />
+        <Route path="/property/:id" element={<PropertyDetail />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route element={<Landing />}>
           <Route path="/" element={<Home />} />
           <Route path="property/:id" element={<PropertyDetail />} />
