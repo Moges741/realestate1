@@ -62,3 +62,17 @@
 .hero_search button:hover {
   background: #099b8d;
 }
+.title {
+  position: absolute;
+  font-family: 'Nunito Sans', sans-serif;
+  /* background-image: url('') */
+  background-clip:text;
+  top: 50%;
+  left: 50%;
+  z-index: 1000;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+}

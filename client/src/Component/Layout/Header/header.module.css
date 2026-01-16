@@ -1,75 +1,86 @@
-.header_container{
-    position: absolute;
-      top: 0;
-      width: 100%;
-      z-index: 100;
-      display: flex;
-    justify-content: space-between;
-    align-items:center;
-}
-.logo{
-    margin-left: 20px;
-    margin-top: 20px;
-}
-.nav_links{
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    margin-right: 20px;
-    margin-top: 20px;
-}
-.nav_links div a{
-    text-decoration: none;
-    color: black;
-    font-weight: 600;
-}
-.nav_links div a:hover{
-    color: blue;
-}
-.title{
-    position: absolute;
-    top: 40%;
-    left: 40%;
-    z-index: 1000;
-    transform: translate(-50%, -50%);
-    font-size: 20px;
-    font-weight: bold;
-    color: black;
-}
+.header_container {
+  background-color: rgba(233,233,233,0.5);
 
+  position: absolute;
+  top: 0;
 
-.profile_image{
-    width:20px;
-    height:20px;
-    border-radius:50%;
-    cursor:pointer;
-
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  
+}
+.logo {
+  margin-left: 20px;
+  /* margin-top: 20px; */
+  a {
     
+    font-family: "Monoton", sans-serif;
+    font-size: 1.5rem;
+    text-decoration: none;
+    /* font-weight: bold; */
+  }
+}
+.nav_links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-right: 20px;
+  /* margin-top: 20px; */
+}
+.nav_links div a {
+  text-decoration: none;
+  color: black;
+  font-family: "Nunito Sans", sans-serif;
+  font-size:1.1rem;
+  font-weight: 600;
+}
+.nav_links div a:hover {
+  color: blue;
+}
+/* .title {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  z-index: 1000;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+} */
+
+.profile_image {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
+.profile_links {
+  display: none;
+}
+.profile {
+  position: relative;
+}
+.profile:hover .profile_links {
+  background-color: white;
+  padding: 10px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
-.profile_links{
-    display:none;
+.profile_button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: white;
+  font-weight: bold;
 }
-.profile{
-    position:relative;
-}
-.profile:hover .profile_links{
-    background-color:white;
-    padding: 10px;
-    position:absolute;
-    display:flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.profile_button{
-    border:none;
-    outline:none;
-    cursor:pointer;
-    background-color:white;
-    font-weight:bold;
-}
-.profile_button:hover{
-    color:blue;
+.profile_button:hover {
+  color: blue;
 }

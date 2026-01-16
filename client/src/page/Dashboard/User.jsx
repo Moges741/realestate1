@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { supabaseAdmin } from "../auth/supabase";
 import './user.css'
+import { useLoggedUser } from "../auth/useLoggedUser";
+import { FadeLoader } from 'react-spinners';
 
 function User() {
   const [loggedUser, setLoggedUser] = useState(null);
@@ -11,9 +13,14 @@ function User() {
     }
     getLoggedUser();
   }, []);
+    const { data,status, error } = useLoggedUser();
+    console.log(data);
+  
 
   const loggedUserEmailVerified = loggedUser?.filter(user => user.user_metadata.email_verified);
   console.log(loggedUserEmailVerified);
+  if(status==='pending') return <div className="loader"> <FadeLoader color='blue' />
+ </div>
 
   return (
     <div>
@@ -27,14 +34,19 @@ function User() {
                     </tr>
                 </thead>
                 <tbody>
-                    {
-                        loggedUserEmailVerified?.map((user, index) => (
+                    {status==='pending' ? (
+                        <tr>
+                            <td colSpan="3">Loading...</td>
+                        </tr>
+                    ) : ( 
+                        data?.map((user, index) => (
                             <tr key={user.id}>
                                 <td className="number">{index + 1}</td>
-                                <td>{user.user_metadata.fullName}</td>
+                                <td>{user.display_name}</td>
                                 <td>{user.email}</td>
                             </tr>
                         ))
+                    )
                     }
                     
                 </tbody>

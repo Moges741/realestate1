@@ -3,7 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import "./signup.css";
 import toast from "react-hot-toast";
-import { SignupApi } from "../auth/auth";
+import { SignupApi, signUpWithGoogle } from "../auth/auth";
+import { ArrowLeftIcon } from "@heroicons/react/16/solid";
 const SignUp = () => {
   const navigate = useNavigate()
   const {
@@ -37,6 +38,8 @@ const SignUp = () => {
   return (
     <div className="signup-container">
       <div className="signup-card">
+                <Link to="/" className="back-btn"><span><ArrowLeftIcon width={24} height={24} /></span><span>Back home</span></Link>
+
         <h1 className="signup-title">Create an account</h1>
 
         <form className="signup-form" onSubmit={handleSubmit(onSubmit)}>
@@ -157,6 +160,7 @@ const SignUp = () => {
         <div className="social-login">
           <button
             className="social-button google-button"
+            onClick={signUpWithGoogle}
             
           >
             <img

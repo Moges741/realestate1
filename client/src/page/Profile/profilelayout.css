@@ -1,0 +1,34 @@
+.hero-fixer{
+    height: 60px;
+}
+.nav-links{
+    margin-right:2rem;
+    display:flex;
+    justify-content:end;
+    
+}
+.profile-subcontainer{
+    display:grid;
+    grid-template-columns:250px 1fr;
+    padding:1rem;
+}
+.divider-container{
+    display:flex;
+    justify-content:space-between;
+}
+.profile-detail{
+    
+    img{
+        border-radius:50%;
+    }
+}
+.discription{
+    margin-top:1rem;
+    
+}
+
+.divider-profile{
+    width:2px;
+    height:auto;
+    background-color:black;
+}

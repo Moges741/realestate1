@@ -55,6 +55,9 @@
         border-radius:0.25rem;
     }
 }
+.dashboard-fixer{
+    height: 55px;
+}
 /* .outlet-container{
     background-color:black;
 } */

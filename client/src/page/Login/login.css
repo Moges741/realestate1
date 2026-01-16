@@ -17,7 +17,13 @@
   width: 100%;
   max-width: 400px;
 }
+.back-btn{
+  display:flex;
 
+  gap:4px;
+  text-decoration:none;
+  color:blue;
+}
 .login-title {
   font-size: 24px;
   font-weight: 600;
