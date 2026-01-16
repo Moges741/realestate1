@@ -29,19 +29,17 @@ const Header = () => {
 
   //   getSession();
   // }, []);
-  const { data,status, error } = useGetSession();
+  const { data, status, error } = useGetSession();
   console.log(data);
   console.log(status, error);
 
   const session = data?.session ?? null;
   console.log(session);
-  const profile = data?.profile?.at(0) ?? null;
-  console.log(profile)
-  const {role, profile_image} = profile || {};
-;
-      const { logout, isPending, error: logoutError } = useLogout();
-      console.log(profile_image);
-
+  const profile = data?.profile ?? null;
+  console.log(profile);
+  const { role, profile_image } = profile || {};
+  const { logout, isPending, error: logoutError } = useLogout();
+  console.log(profile_image);
 
   // async function handleLogout(e) {
   //   e.preventDefault();
@@ -58,7 +56,6 @@ const Header = () => {
 
   console.log(session, profile);
 
- 
   return (
     <section>
       <div className={styles.header_container}>
@@ -70,19 +67,13 @@ const Header = () => {
           {session ? (
             <div className={styles.profile}>
               <img
-                src={
-                 profile_image ||
-                  "src/Component/Layout/Header/profile.jpg"
-                }
+                src={profile_image || "src/Component/Layout/Header/profile.jpg"}
                 alt="profile"
                 className={styles.profile_image}
               />
               <div className={styles.profile_links}>
                 <Link to="/profile">Profile</Link>
-                <button
-                  className={styles.profile_button}
-                  onClick={logout}
-                >
+                <button className={styles.profile_button} onClick={logout}>
                   Logout
                 </button>
               </div>

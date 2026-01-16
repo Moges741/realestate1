@@ -4,16 +4,16 @@ import "./dashboard.css";
 import { useGetSession } from "../auth/useSession";
 
 function Dashboard() {
-    const { data,status, error } = useGetSession();
-    const profile = data?.profile?.at(0) ?? null;
-      const session = data?.session ?? null;
+  const { data, status, error } = useGetSession();
+  const profile = data?.profile ?? null;
+  const session = data?.session ?? null;
 
-    const {profile_image} = profile||{}
+  const { profile_image } = profile || {};
 
   const { pathname } = useLocation();
   console.log(pathname);
-  const navigate = useNavigate()
-  if(!session) navigate('/')
+  const navigate = useNavigate();
+  if (!session) navigate("/");
   return (
     <>
       <div className="dashboard-fixer"></div>
@@ -22,7 +22,7 @@ function Dashboard() {
         <div className="sidebar">
           <div className="profile">
             <div className="profile-img">
-              <img src={profile_image||"/profile.jpg"} alt="admin" />
+              <img src={profile_image || "/profile.jpg"} alt="admin" />
             </div>
             <div className="description">
               <p>Admin</p>
