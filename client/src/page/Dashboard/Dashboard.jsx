@@ -22,7 +22,7 @@ function Dashboard() {
         <div className="sidebar">
           <div className="profile">
             <div className="profile-img">
-              <img src={profile_image || "/profile.jpg"} alt="admin" />
+              {/* <img src={profile_image  "/profile.jpg"} alt="admin" /> */}
             </div>
             <div className="description">
               <p>Admin</p>
