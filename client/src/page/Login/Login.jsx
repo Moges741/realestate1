@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./login.css";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { LoginApi } from "../auth/auth";
+import { ArrowLeftIcon } from "@heroicons/react/16/solid";
 
 const Login = () => {
 
@@ -24,8 +25,12 @@ const Login = () => {
   }
   return (
     <div className="login-container">
+      
       <div className="login-card">
-        <h1 className="login-title">Sign in to your account</h1>
+        <Link to="/" className="back-btn"><span><ArrowLeftIcon width={24} height={24} /></span><span>Back home</span></Link>
+        <h1 className="login-title"><span>SignIn into your account</span></h1>
+
+        
 
         <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
           <div className="form-group">

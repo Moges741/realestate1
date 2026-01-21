@@ -17,78 +17,75 @@ const HeroCarousel = () => {
         {images.map((slide) => (
           <div className={styles.slide}>
             <img src={slide} alt="Hero Slide" />
-
-            </div>
+          </div>
           // </div>
         ))}
-      
-       
-     
       </Carousel>
-         <div className={styles.hero_search}>
-      <input
-        type="text"
-        name="city"
-        placeholder="City"
-        // value={filters.city}
-      />
+      <div className={styles.hero_search}>
+        <input
+          type="text"
+          name="city"
+          placeholder="City"
+          // value={filters.city}
+        />
 
-      <select name="bedrooms" 
-      // value={filters.bedrooms}
-      >
-        <option value="">Bedrooms</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3+</option>
-      </select>
+        <select
+          name="bedrooms"
+          // value={filters.bedrooms}
+        >
+          <option value="">Bedrooms</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3+</option>
+        </select>
 
-      <select name="bathrooms" 
-      // value={filters.bathrooms}
-    >
-        <option value="">Bathrooms</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3+</option>
-      </select>
+        <select
+          name="bathrooms"
+          // value={filters.bathrooms}
+        >
+          <option value="">Bathrooms</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3+</option>
+        </select>
 
-      <input
-        type="number"
-        name="priceFrom"
-        placeholder="$ From"
-        // value={filters.priceFrom}
-        
-      />
+        <input
+          type="number"
+          name="priceFrom"
+          placeholder="$ From"
+          // value={filters.priceFrom}
+        />
 
-      <input
-        type="number"
-        name="priceTo"
-        placeholder="$ To"
-        // value={filters.priceTo}
-        
-      />
+        <input
+          type="number"
+          name="priceTo"
+          placeholder="$ To"
+          // value={filters.priceTo}
+        />
 
-      <div className="checkbox-group">
-        <label>
-          <input
-            type="checkbox"
-            // checked={filters.type === "rent"}
-           
-          />
-          For Rent
-        </label>
+        <div className="checkbox-group">
+          <label>
+            <input
+              type="checkbox"
+              // checked={filters.type === "rent"}
+            />
+            For Rent
+          </label>
 
-        <label>
-          <input
-            type="checkbox"
-            // checked={filters.type === "sale"}
-          />
-          For Sale
-        </label>
+          <label>
+            <input
+              type="checkbox"
+              // checked={filters.type === "sale"}
+            />
+            For Sale
+          </label>
+        </div>
+
+        <button>Search</button>
       </div>
-
-      <button>Search</button>
-    </div>
-
+      <div className={styles.title}>
+        <h1>EM Real Estate Your Gateway to Dream Homes</h1>
+      </div>
     </div>
   );
 };

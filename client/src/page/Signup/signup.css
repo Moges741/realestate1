@@ -9,6 +9,13 @@
   background-color: #f9fafb;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
 }
+.back-btn{
+  display:flex;
+
+  gap:4px;
+  text-decoration:none;
+  color:blue;
+}
 
 .signup-card {
   background: white;
