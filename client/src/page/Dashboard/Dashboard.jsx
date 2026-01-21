@@ -45,10 +45,10 @@ function Dashboard() {
               Users
             </NavLink>
             <NavLink
-              to="/dashboard/properties"
+              to="/dashboard/addProperty"
               className={({ isActive }) => (isActive ? "active" : "")}
             >
-              Properties
+              Add Properties
             </NavLink>
             <NavLink
               to="/dashboard/booked"

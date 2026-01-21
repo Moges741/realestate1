@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./login.css";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { LoginApi } from "../auth/auth";
+import { LoginApi, signUpWithGoogle } from "../auth/auth";
 import { ArrowLeftIcon } from "@heroicons/react/16/solid";
 
 const Login = () => {
@@ -107,6 +107,7 @@ const Login = () => {
         <div className="social-login">
           <button
             className="social-button google-button"
+            onClick={signUpWithGoogle}
             
           >
             <img
