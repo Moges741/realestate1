@@ -1,28 +1,34 @@
-import { NavLink, Outlet, useLocation, useNavigate } from "react-router";
-// import User from "./User"
+import { NavLink, Outlet,  useNavigate } from "react-router";
+// import { useState, useEffect } from "react";
 import "./dashboard.css";
 import { useGetSession } from "../auth/useSession";
 
 function Dashboard() {
-  const { data, status, error } = useGetSession();
+  const { data } = useGetSession();
   const profile = data?.profile ?? null;
   const session = data?.session ?? null;
-
   const { profile_image } = profile || {};
-
-  const { pathname } = useLocation();
-  console.log(pathname);
+  
   const navigate = useNavigate();
-  if (!session) navigate("/");
+
+
+  if (!session) {
+    navigate("/");
+    return null;
+  }
+
   return (
     <>
       <div className="dashboard-fixer"></div>
-
+      
       <div className="container">
-        <div className="sidebar">
+        <div className={`sidebar`}>
           <div className="profile">
             <div className="profile-img">
-              {/* <img src={profile_image  "/profile.jpg"} alt="admin" /> */}
+              <img 
+                src={profile_image || "/profile.jpg"} 
+                alt="Admin" 
+              />
             </div>
             <div className="description">
               <p>Admin</p>
@@ -31,13 +37,7 @@ function Dashboard() {
           </div>
 
           <div className="links">
-            <NavLink
-              end
-              to="/dashboard"
-              className={({ isActive }) => (isActive ? "active" : "")}
-            >
-              Dashboard
-            </NavLink>
+           
             <NavLink
               to="/dashboard/users"
               className={({ isActive }) => (isActive ? "active" : "")}
@@ -50,15 +50,10 @@ function Dashboard() {
             >
               Add Properties
             </NavLink>
-            <NavLink
-              to="/dashboard/booked"
-              className={({ isActive }) => (isActive ? "active" : "")}
-            >
-              Booked Properties
-            </NavLink>
+           
             <NavLink
               to="/dashboard/rented"
-              className={({ isActive }) => (isActive ? "active" : "   ")}
+              className={({ isActive }) => (isActive ? "active" : "")}
             >
               Rented Properties
             </NavLink>
@@ -71,9 +66,12 @@ function Dashboard() {
           </div>
 
           <div className="btn">
-            <button>Logout</button>
+            <button onClick={() => navigate("/")}>
+              Logout
+            </button>
           </div>
         </div>
+        
         <div className="outlet-container">
           <Outlet />
         </div>

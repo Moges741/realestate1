@@ -1,4 +1,4 @@
-import supabase, { supabaseAdmin, supabaseUrl } from "./supabase";
+import supabase, {  supabaseUrl } from "./supabase";
 
 export async function LoginApi({ email, password }) {
   const { data, error } = await supabase.auth.signInWithPassword({
@@ -84,6 +84,8 @@ export async function LogoutApi() {
     console.log(error.message);
     throw new Error(error.message);
   }
+
+  
 }
 
 export const signUpWithGoogle = async () => {
@@ -97,9 +99,17 @@ export const signUpWithGoogle = async () => {
 };
 
 export async function getLoggedUsers() {
-  let { data, error } = await supabase.from("profiles").select("*");
+  let { data } = await supabase.from("profiles").select("*");
   console.log(data);
   return data;
+}
+
+export async function rentedProperties() {
+  let { data: rented, } = await supabase
+  .from('rented')
+  .select('*')
+  return rented;
+  
 }
 
 // let { data: profiles, error } = await supabase
@@ -174,4 +184,19 @@ export async function updateUserData({ full_name, avatar }) {
   }
 
   return { user, profile: updatedProfiles };
+}
+
+export async function updateRole({ id, updateValue }) {
+  const { data, error } = await supabase
+    .from("profiles")
+    .update({ role: updateValue })
+    .eq("id", id)
+    .select()
+    .single();
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return data;
 }

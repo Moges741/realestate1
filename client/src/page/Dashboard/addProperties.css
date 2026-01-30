@@ -1,13 +1,185 @@
-.add-properties-container{
-    width: 50%;
-    margin: auto;
-    overflow-y: auto;
-    height:80vh;
-    /* height:50%; */
-}
-.add-properties-form{
+/* addProperties.css */
 
+.add-properties-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0;
+    /* No background here - outlet-container provides it */
+}
+
+.add-properties-container h1 {
+    margin-bottom: 25px;
+    color: #333;
+    font-size: 24px;
+    font-weight: 600;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+.add-properties-form {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Form grid layout - Add this back */
+.add-properties-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    position: relative;
+}
+
+/* Full width items */
+.add-properties-form label[for="mainImage"],
+.add-properties-form label[for="description"],
+.add-properties-form .sub-images-group,
+.add-properties-form button {
+    grid-column: span 2;
+}
+
+/* Label styling */
+.add-properties-form label {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+/* Input and textarea styling */
+.add-properties-form input,
+.add-properties-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-top: 5px;
+    background: white;
+    transition: border 0.2s;
+}
+
+.add-properties-form input:focus,
+.add-properties-form textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+
+/* Textarea specific */
+.add-properties-form textarea {
+    min-height: 100px;
+    resize: vertical;
+    font-family: inherit;
+}
+
+/* Error states */
+.add-properties-form input.error,
+.add-properties-form textarea.error {
+    border-color: #dc3545;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+}
+
+/* Sub images group */
+.sub-images-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+/* Submit button */
+.add-properties-form button {
+    padding: 12px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 10px;
+}
+
+.add-properties-form button:hover {
+    background: #0056b3;
+}
+
+.add-properties-form button:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+}
+
+/* Loading overlay */
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    z-index: 10;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Success message */
+.success-message {
+    background: #d4edda;
+    color: #155724;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    border: 1px solid #c3e6cb;
+    font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .add-properties-form {
+        grid-template-columns: 1fr;
+    }
+    
+    .add-properties-form label[for="mainImage"],
+    .add-properties-form label[for="description"],
+    .add-properties-form .sub-images-group,
+    .add-properties-form button {
+        grid-column: span 1;
+    }
+    
+    .sub-images-group {
+        grid-template-columns: 1fr;
+    }
+    
+    /* For mobile, remove sidebar margin */
+    .outlet-container {
+        margin-left: 0;
+        width: 100%;
+    }
 }
