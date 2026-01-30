@@ -12,7 +12,7 @@ const PropertiesDB = () => {
     const fetchProperties = async () => {
       try {
         console.log('Fetching properties from backend...');
-        const response = await fetch('http://localhost:5000/api/properties', {
+        const response = await fetch('https://realestate1-3gfg.onrender.com/api/properties', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
