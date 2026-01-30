@@ -1,20 +1,34 @@
-// src/index.js (UPDATED - FULL FILE)
+// src/index.js
 import express from 'express';
 import cors from 'cors';
 import pool from './DB/createDb.js';
 import propertiesRouter from './routes/properties.js';
-// import { initializeDatabase } from './sql/data.js';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// ✅ FIXED CORS: Allow Vite frontend (port 5173)
+// ✅ UPDATED CORS: Allow both development and production
+const allowedOrigins = [
+  'http://localhost:5173',  // Local development
+  'http://localhost:3000',  // Another common dev port
+  'https://your-frontend-domain.onrender.com', // Add your frontend Render URL here
+];
+
 app.use(cors({
-  origin: 'http://localhost:5173',  // Your React/Vite app
-  credentials: true,                // If you use cookies later
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
+  credentials: true,
 }));
 
-// Alternative during development (allow any origin):
+// Or simpler: Allow all origins (for now, while testing)
 // app.use(cors());
 
 app.use(express.json());
@@ -33,6 +47,9 @@ app.get('/', (req, res) => {
         → View all properties (JSON)
       </a>
     </p>
+    <p style="text-align: center; font-family: sans-serif; color: #666;">
+      Backend URL: https://realestate1-3gfg.onrender.com
+    </p>
   `);
 });
 
@@ -42,13 +59,8 @@ const startServer = async () => {
     await pool.getConnection();
     console.log('MySQL connection pool ready');
 
-    // await initializeDatabase();
-    // console.log('Database table ready');
-
     app.listen(PORT, () => {
-      console.log(`🚀 Backend running on http://localhost:${PORT}`);
-      console.log(`✅ CORS enabled for http://localhost:5173`);
-      console.log(`📡 Test API: http://localhost:${PORT}/api/properties`);
+      console.log(`🚀 Backend running on port ${PORT}`);
     });
   } catch (error) {
     console.error('Failed to start server:', error);
