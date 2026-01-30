@@ -1,6 +1,7 @@
 // src/pages/Properties.jsx
 import React, { useState, useEffect } from 'react';
 import PropertyCard from './PropertyCard.jsx';
+import VITE_API_URL from '../../../env.js'
 import styles from './Properties.module.css';
 
 const PropertiesDB = () => {
@@ -12,7 +13,8 @@ const PropertiesDB = () => {
     const fetchProperties = async () => {
       try {
         console.log('Fetching properties from backend...');
-        const response = await fetch('https://realestate1-3gfg.onrender.com/api/properties', {
+
+        const response = await fetch(`${VITE_API_URL}/api/properties`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -64,7 +66,7 @@ const PropertiesDB = () => {
             🔄 Retry
           </button>
           <p className={styles.backendCheck}>
-            Make sure backend is running: <code>http://localhost:3306/api/properties</code>
+            Make sure backend is running: <code>http://localhost:5000/api/properties</code>
           </p>
         </div>
       </div>
