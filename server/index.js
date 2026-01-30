@@ -3,7 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import pool from './DB/createDb.js';
 import propertiesRouter from './routes/properties.js';
-import { initializeDatabase } from './sql/data.js';
+// import { initializeDatabase } from './sql/data.js';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -42,8 +42,8 @@ const startServer = async () => {
     await pool.getConnection();
     console.log('MySQL connection pool ready');
 
-    await initializeDatabase();
-    console.log('Database table ready');
+    // await initializeDatabase();
+    // console.log('Database table ready');
 
     app.listen(PORT, () => {
       console.log(`🚀 Backend running on http://localhost:${PORT}`);
