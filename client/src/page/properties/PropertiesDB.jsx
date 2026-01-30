@@ -64,7 +64,7 @@ const PropertiesDB = () => {
             🔄 Retry
           </button>
           <p className={styles.backendCheck}>
-            Make sure backend is running: <code>http://localhost:5000/api/properties</code>
+            Make sure backend is running: <code>http://localhost:3306/api/properties</code>
           </p>
         </div>
       </div>
