@@ -12,8 +12,8 @@ const PropertiesDB = () => {
     const fetchProperties = async () => {
       try {
         console.log('Fetching properties from backend...');
-        const VITE_API_URL = import.meta.env.VITE_API_URL;
-        const response = await fetch(`${VITE_API_URL}/api/properties` || `https://realestate1-3gfg.onrender.com/api/properties`, {
+        // const VITE_API_URL = import.meta.env.VITE_API_URL;
+        const response = await fetch(`https://realestate1-3gfg.onrender.com/api/properties`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
