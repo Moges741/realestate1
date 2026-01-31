@@ -11,7 +11,8 @@ const PORT = process.env.PORT || 5000;
 const allowedOrigins = [
   'http://localhost:5173',  // Local development
   'http://localhost:3000',  // Another common dev port
-  'https://realestate-henna-beta.vercel.app/', // Add your frontend Render URL here
+  'https://realestate-henna-beta.vercel.app/',
+  'https://emrealestate.vercel.app/', // Add your frontend Render URL here
 ];
 
 app.use(cors({
