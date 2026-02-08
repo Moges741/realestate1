@@ -47,7 +47,7 @@ function Dashboard() {
             <NavLink
               to="/dashboard/addProperty"
               className={({ isActive }) => (isActive ? "active" : "")}
-            >
+            >//you can add here your property
               Add Properties
             </NavLink>
            
