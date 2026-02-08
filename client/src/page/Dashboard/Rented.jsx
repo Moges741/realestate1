@@ -16,7 +16,7 @@ function User() {
 
   return (
     <div>
-        <h1>Rented Properties</h1>
+        <h1>Rented Properties Data comes from Supabase</h1>
       <div class="table-container">
             <table>
                 <thead>
